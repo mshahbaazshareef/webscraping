@@ -2,6 +2,7 @@
 
 import requests
 import smtplib
+import csv
 
 from bs4 import BeautifulSoup
 
@@ -21,6 +22,11 @@ convprice = int(price[2:4])
 
 print(title.strip())
 print(convprice)
-y = 60
-if (convprice> y):
-    print("price change")
+
+csvdata = [['product' , 'cost'], ['hello' , 'shahbaaz' ]]
+
+with open('price.csv','w') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerows(csvdata)
+
+csvfile.close()
